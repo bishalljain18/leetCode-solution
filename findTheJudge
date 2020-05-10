@@ -1,0 +1,22 @@
+var findJudge = function(N, trust) {
+    
+    const thoseTrusted = Array(N).fill(0);
+    const thoseTrust = Array(N).fill(0);
+    
+    for(let i = 0;i < trust.length; i++) {
+        let [a,b] = trust[i];
+        a--;
+        b--;
+        
+        thoseTrusted[a]++;
+        thoseTrust[b]++;
+    }
+    for(let i = 0; i < N; i++) {
+        if(thoseTrusted[i] === 0 && thoseTrust[i] === N-1) {
+            return i+1;
+        }
+    }
+    
+    return -1;
+    
+};
