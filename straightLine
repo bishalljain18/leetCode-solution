@@ -1,0 +1,19 @@
+var checkStraightLine = function(coordinates) {
+    if(coordinates.length === 2){
+        return true;
+    }
+    const fixedSlope = (coordinates[1][1] - coordinates[0][1]) / (coordinates[1][0] - coordinates[0][0]);
+    for(let i = 1; i<coordinates.length; i++) {
+        let point1 = coordinates[i];
+        let point2 = coordinates[0];
+        let variableSlope = slope(point1,point2)
+        if(fixedSlope !== variableSlope) {
+          return false;
+        }
+    }
+    return true;
+};
+
+var slope = function(point1, point2){
+  return (point1[1] - point2[1]) / (point1[0] - point2[0]);
+};
