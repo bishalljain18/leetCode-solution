@@ -1,0 +1,28 @@
+/**
+ * @param {string} s1
+ * @param {string} s2
+ * @return {boolean}
+ */
+var checkInclusion = function(s1, s2) {
+    let result = false;
+      let char_count = Array(26).fill(0); // creating a array of 26 character to maintain the frequency
+      for(let i = 0; i < s1.length; i++) {
+        char_count[s1[i].charCodeAt(0) - 'a'.charCodeAt(0)]++; // maintaining the frequency of the first string letters 
+      } // substarcting 'a' to maintain the ascii value
+      let left = 0;
+      let right = 0;
+      let count = s1.length;
+
+// sliding window problem
+      while(right < s2.length) { 
+        if(char_count[s2.charAt(right++).charCodeAt(0) - 'a'.charCodeAt(0)]-- >= 1) {
+          count--;
+        } // increasing the right window and decresing the count to vallidate if same frequncy exist in the array
+        if(count === 0){
+            result = true;
+        }
+        if(right - left === s1.length && char_count[s2.charAt(left++).charCodeAt(0) - 'a'.charCodeAt(0)]++ >= 0) count++;
+        //again increasing the left window to increase the count and countinuing the process if the winoow i
+      }
+    return result
+};
