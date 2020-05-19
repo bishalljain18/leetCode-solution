@@ -16,6 +16,8 @@
 // S and J will consist of letters and have length at most 50.
 // The characters in J are distinct.
 
+solution 1:
+
 var numJewelsInStones = function(J, S) {
 // for both J and S created 2 arrays to maintain the frequncy based on upper and lower character
       let j_char_count_lower = Array(26).fill(0)
@@ -47,4 +49,23 @@ var numJewelsInStones = function(J, S) {
         }
       }
       return value
+};
+
+solution 2:
+
+ const js = J.split('');
+        return S.split('')
+            .reduce((a, c) => js.includes(c) ? a + 1 : a, 0)
+
+
+solution 3: 
+
+var numJewelsInStones = function(J, S) {
+    let n = 0;
+    J.split('').map(letterJ => S.split('').map(letterS => {
+        if (letterS === letterJ) {
+            n++;
+        }
+    }))
+    return n;
 };
