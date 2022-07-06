@@ -1,0 +1,10 @@
+var twoSum = function(nums, target) {
+  const mapObj = {};
+  for (let i = 0; i < nums.length; i++) {
+    const currEle = nums[i];
+    const diff = target - currEle;
+    const secondIndex = mapObj[diff];
+    if (diff in mapObj) return [i, secondIndex];
+    mapObj[currEle] = i;
+  }
+};
