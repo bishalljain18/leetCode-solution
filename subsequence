@@ -1,7 +1,7 @@
 const isSubsequence = (s, t) => {
   let subsequence = 0;
-  for (let i = 0; i < t.length; i++) {
-    if (s[subsequence] === t[i]) {
+  for (const element of t) {
+    if (s[subsequence] === element) {
       subsequence++;
     }
   }
