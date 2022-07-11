@@ -15,5 +15,6 @@ const reverseWords = (s) => {
     }
     splittedWords[i] = splittedChar.join('');
   }
+  console.log('check')
   return splittedWords.join(' ');
 };
